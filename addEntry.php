@@ -1,0 +1,1 @@
+promp user to add new blog

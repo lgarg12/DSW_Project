@@ -1,0 +1,24 @@
+1. install Xampp and set it up, go to xampp control panel
+2. start apache and MySQL and click on ADMIN of MySQL
+3. go to USER ACOUNTS and see if we have "root" user with "local host" name and NO password
+4. if yes then it will work automaticaly, if no, add new account with all these details
+
+5. decompress this folder and put it in xampp dirrectory you sepecfied
+    it might be "C:/xampp"
+6. go to "htdocs" and paste this folder there
+
+7. recheck it server is ON in Xampp control pannel "apache"
+
+8. go to "localhost/phpmyadmin/" and a xampp window should open up for MySQL
+
+9. go to "Database" and add a database named "blogs"
+10. create table with 3 rows, "id, title, content"
+11. id- int primary auto_increment
+12. title varchar(255) 
+13. content LONGTTEXT
+
+14. save it
+
+15. if site is working with no errors, add new blogs from "add blog" button
+
+16. site will display them
