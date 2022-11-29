@@ -1,6 +1,6 @@
 <?php
                       // localhost, username, passweord, database
-    $conn = mysqli_connect("localhost", "root", "tiger", "blogs");
+    $conn = mysqli_connect("localhost", "root", "", "Blogs");
     
     if(!$conn){
         echo "connection not establised";

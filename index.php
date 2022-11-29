@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohit's Legacy</title>
+    <title>Blogs</title>
     <link href="normalize.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,23 +20,26 @@
           </a>
           <ul class="nav-items">
             <li class="item">
-              <a href="#home" class="nav-link">
-                <span class="link-text link">About</span>
-              </a>
-            </li>
-            <!-- <li class="item">
               <a href="#skill-achievement" class="nav-link">
-                <span class="link-text link">skills & work</span>
+                <span class="link-text link">BloggersSpot</span>
               </a>
             </li>
-            <li class="item">
-              <a href="#portfolio" class="nav-link">
-                <span class="link-text link">Portfolio</span>
-              </a>
-            </li> -->
+            
             <li class="item">
               <a href="#blogs" class="nav-link">
-                <span class="link-text link">Blogs</span>
+                <span class="link-text link">BLOGS</span>
+              </a>
+            </li>
+
+            <li class="item">
+              <a href="#home" class="nav-link">
+                <span class="link-text link">ABOUT</span>
+              </a>
+            </li>
+
+            <li class="item">
+              <a href="login.html" class="nav-link">
+                <span class="link-text link">Sign In</span>
               </a>
             </li>
           </ul>
@@ -50,14 +53,16 @@
               <h3 class="name">Jaypee Institue of Information Technology</h3>
             </div>
             <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda fugiat doloribus obcaecati illo, ratione similique quam voluptates dicta cupiditate sint explicabo, repellendus, blanditiis autem rem ullam animi officiis sapiente distinctio!
+              Create a Unique and Beautiful Blog easily...
             </p>
           </div>
         </section>
         <section class="blogs" id="blogs">
           <div class="upper-content">
-            <a class="add-blogs" href="addPost.php">Add new Blog</a>
-
+            <a class="add-blogs" href="addPost.php">Be Creative here</a>
+          </div>
+          <div class="tagline">
+              <h1 class="name">Blog with the best</h1>
           </div>
           <div class="row">
               <?php foreach($query as $q){ ?>
@@ -74,8 +79,8 @@
     <hr>
     <footer>
       <div class="contact-us">
-        <h1>Contact me, </h1>
-        <form action="">
+        <h1>Contact Us</h1>
+        <form method= "POST" action="">
           <div class="container">
             <label for="name">Name:    </label><input type="text" name="name" id="#name" />
           </div>

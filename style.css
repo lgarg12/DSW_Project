@@ -232,3 +232,8 @@ footer{
 .card-body h2,p{
     margin: 3px;
 }
+
+#Login_form{
+    /* position: relative; */
+    margin-top:300px;
+}
