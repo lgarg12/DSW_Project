@@ -12,7 +12,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>About Us</title>
+  <title>Login</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
@@ -29,6 +29,16 @@
 </head>
 
 <body class="sub_page">
+<?php
+$conn =mysqli_connect("localhost","root","tiger","MedicineDB");
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+  $Email=$_POST['email'];
+  $username=$_POST['Uname'];
+  $password=$_POST['pass'];
+  mysqli_query($conn,"Insert Into users VALUES('$Email','$username','$password')");
+  header('location: /DSW_Project/afterLogin.html');
+  exit;
+}?>
 
   <div class="hero_area">
     <!-- header section strats -->
@@ -50,10 +60,10 @@
                 <li class="nav-item ">
                   <a class="nav-link" href="index.html">Home</a>
                 </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="about.html"> About</a>
+                <li class="nav-item ">
+                  <a class="nav-link" href="about.html"> About <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item ">
                   <a class="nav-link" href="gallery.html"> Medicine's </a>
                 </li>
                 <li class="nav-item">
@@ -63,12 +73,11 @@
 
             </div>
             <div class="quote_btn-container ">
-              <a class="nav-link" href="Login.php">
-                Log in 
+              <a href="Login.php">
+                Log in
               </a>
-              <a class="nav-link" href="signup.php">
-                Sign Up
-                <img src="images/cart.png" alt="">
+              <a href="">
+                <img src="#" alt="">
               </a>
               <form class="form-inline">
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
@@ -81,37 +90,42 @@
     <!-- end header section -->
   </div>
 
-  <!-- about section -->
-  <section class="about_section ">
+
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding">
+    <div class="container ">
+      <div class="heading_container justify-content-center">
+        <h2 class="">
+          Sign Up
+        </h2>
+      </div>
+
+    </div>
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-xl-7">
-          <div class="img-box">
-            <img src="images/about-img.png" alt="" />
-          </div>
-        </div>
-        <div class="col-md-5 col-xl-5">
-          <div class="detail_box">
-            <div class="heading_container justify-content-end">
-              <h2>
-                About Us
-              </h2>
+        <div class="col-md-6 mx-auto">
+          <form method="POST" action="signup.php">
+          <div>
+              <input type="email" placeholder="Email" name="email" required/>
             </div>
-            <p>
-              With Our website, getting the medicine you need is simple. visit the
-              website to conveniently order your medicines from anywhere, at anytime.
-              Just tap the website, upload your required medicines, and your order will 
-              be delivered anywhere in India. Use our website to Order/Refill Your 
-              Medicines, Track Your Order, Rate Items,Refer Your Friends & Earn,
-              or Contact Us on the go!
-            </p>
-          </div>
+            <div>
+              <input type="text" placeholder="User Name" name="Uname" required/>
+            </div>
+            <div>
+              <input type="password" placeholder="Password" name="pass" required/>
+            </div>
+            <div class="d-flex  mt-4 ">
+              <button>SignUp</button>
+            </div>
+          </form>
         </div>
-
       </div>
     </div>
   </section>
-  <!-- end about section -->
+
+  <!-- end contact section -->
+
 
   <!-- info section -->
   <section class="info_section layout_padding">
@@ -141,7 +155,7 @@
                   Home
                 </a>
               </li>
-              <li class="active">
+              <li>
                 <a href="about.html">
                   About
                 </a>

@@ -29,6 +29,26 @@
 </head>
 
 <body class="sub_page">
+<?php
+$conn = mysqli_connect("localhost","root","tiger","medicinedb");
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+  $Email=$_POST['email'];
+  $username=$_POST['Uname'];
+  $password=$_POST['pass'];
+
+  $sql = "select * from users WHERE Email='$Email' AND Password='$password'";
+  $result=mysqli_query($conn,$sql);
+
+  $row = mysqli_fetch_assoc($result);
+
+  if(mysqli_num_rows($result)>0){ 
+    header('location: /DSW_Project/afterLogin.html');
+    exit;
+  }
+  else{
+    echo "Inavlid credentials";
+  }
+}?>
 
   <div class="hero_area">
     <!-- header section strats -->
@@ -206,26 +226,6 @@
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
 
-<?php
-
-$conn = new mysqli("localhost","root","","medicinedb");
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-  $Email=$_POST['email'];
-  $username=$_POST['Uname'];
-  $password=$_POST['pass'];
-
-  $sql = "select * from users WHERE Email='$Email' AND Password='$password'";
-  $result=mysqli_query($conn,$sql);
-
-  $row = mysqli_fetch_assoc($result);
-
-  if(mysqli_num_rows($result)>0){ 
-  }
-  else{
-    echo "Inavlid credentials";
-  }
-}
-?>
 </body>
 
 </html>
