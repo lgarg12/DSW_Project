@@ -96,6 +96,9 @@
       <div class="row">
         <div class="col-md-6 mx-auto">
           <form method="POST" action="login.php">
+          <div>
+              <input type="email" placeholder="Email" name="email" />
+            </div>
             <div>
               <input type="text" placeholder="User Name" name="Uname" />
             </div>
@@ -103,9 +106,7 @@
               <input type="password" placeholder="Password" name="pass" />
             </div>
             <div class="d-flex  mt-4 ">
-              <button>
-                Login
-              </button>
+              <input type="submit" name="login" value="Log In">
             </div>
           </form>
         </div>
@@ -205,10 +206,32 @@
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
 
-</body>
-
 <?php
-  echo "Hello";
+
+$conn = new mysqli("localhost","root","","medicinedb");
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+  $Email=$_POST['email'];
+  $username=$_POST['Uname'];
+  $password=$_POST['pass'];
+
+  $sql = "select * from users WHERE email='$Email' AND password='$password'";
+  echo $sql;
+  $result=mysqli_query($conn,$sql);
+
+  $row = mysqli_fetch_assoc($result);
+  echo $row['email'];
+
+  if(mysqli_num_rows($result)>0){
+      
+    echo "signing in...";
+      
+  }
+  else{
+    echo "their is no user";
+  }
+}
+echo "hi";
 ?>
+</body>
 
 </html>
