@@ -63,12 +63,12 @@
 
             </div>
             <div class="quote_btn-container ">
-              <!-- <a href="Login.php">
+              <a href="#">
                 Your Orders 
               </a>
               <a href="">
-                <img src="" alt="">
-              </a> -->
+                <img src="images/cart.png" alt="">
+              </a>
               <form class="form-inline">
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
               </form>
@@ -95,21 +95,24 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 mx-auto">
-          <form action="">
+          <form method="POST" action="OrderNow.php">
             <div>
-              <input type="text" placeholder="Full Name" />
+              <input type="text" placeholder="Full Name" name="uname" required />
             </div>
             <div>
-              <input type="text" placeholder="Medicine List" />
+              <input type="text" placeholder="Medicine List" name="medlist" required />
             </div>
-			<div>
-              <input type="number" placeholder="Quantity" />
+			      <div>
+              <input type="number" placeholder="Quantity" name="Qty" required />
+            </div>
+			      <div>
+              <input type="email" placeholder="Email" name="mail" required />
             </div>
             <div>
-              <input type="text" placeholder="Phone Number" />
+              <input type="text" placeholder="Phone Number" name="num" required />
             </div>
             <div>
-              <input type="text" class="message-box" placeholder="Address" />
+              <input type="text" class="message-box" placeholder="Address" name="add" required />
             </div>
             <div class="d-flex  mt-4 ">
               <button>
@@ -205,7 +208,7 @@
   <!-- footer section -->
   <footer class="container-fluid footer_section">
     <p>
-      &copy; <span id="displayYear"></span> All Rights Reserved By
+    &copy; <span id="displayYear"></span> All Rights Reserved | Created By <span id="names"> Lakshay Garg ,Vaibhav Bansal, Rohit and Vishwakant </span>
       <a href="https://html.design/">Free Html Templates</a>
     </p>
   </footer>
@@ -214,6 +217,27 @@
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
+
+<?php
+  $conn=mysqli_connect("localhost","root","tiger","MedicineDB");
+  if($_SERVER["REQUEST_METHOD"]=="POST"){
+      $name=$_POST['uname'];
+      $Med=$_POST['medlist'];
+      $quantity=$_POST['Qty'];
+      $Email=$_POST['mail'];
+      $Number=$_POST['num'];
+      $Add=$_POST['add'];
+
+      $sql="Insert into orders VALUES ('$name','$Med',$quantity,'$Email',$Number,'$Add')";
+      $result=mysqli_query($conn,$sql);
+      if($result){
+        echo "Inserted";
+      }
+      else{
+        echo "Failed";
+      }
+  }
+?>
 
 </body>
 

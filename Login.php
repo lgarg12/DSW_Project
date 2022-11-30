@@ -217,7 +217,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   <!-- footer section -->
   <footer class="container-fluid footer_section">
     <p>
-      &copy; <span id="displayYear"></span> All Rights Reserved | Created By <span id="names"> Pulkit Narsaria ,Vaibhav Bansal and Kunal Yadav </span>
+    &copy; <span id="displayYear"></span> All Rights Reserved | Created By <span id="names"> Lakshay Garg ,Vaibhav Bansal, Rohit and Vishwakant </span>
     </p>
   </footer>
   <!-- footer section -->
